@@ -5,13 +5,13 @@ body {
 }
 
 p.main {
-  font-size: 24px;
+  font-size: 22px;
 }
 
 .map {
     position: absolute;
     right: 0px;
-    left: 400px;
+    left: 450px;
     height: 100%;
     top: 0;
 }
@@ -19,7 +19,7 @@ p.main {
 .sidebar {
     position: absolute;
     left: 0px;
-    width: 400px;
+    width: 450px;
     top: 0;
     bottom: 0;
     overflow-y: auto;

@@ -34,6 +34,25 @@ p.main {
   right: 0px;
   width: 150px;
 }
+.custom-popup .leaflet-popup-content-wrapper {
+  background:grey;
+  color:#fff;
+  font-size:16px;
+  line-height:24px;
+  opacity: 0.8;
+  }
+.custom-popup .leaflet-popup-content-wrapper a {
+  color:rgba(255,255,255,0.5);
+  }
+.custom-popup .leaflet-popup-tip-container {
+  width:30px;
+  height:15px;
+  }
+.custom-popup .leaflet-popup-tip {
+  border-left:15px solid transparent;
+  border-right:15px solid transparent;
+  border-top:15px solid #2c3e50;
+  }
 #Monday{
   margin-left: 10px;
   width: 40px;

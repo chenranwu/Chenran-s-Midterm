@@ -7,7 +7,7 @@ var map = L.map('map', {
   zoom: 12
 });
 var Stamen_TonerLite = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
-  attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+  attribution: 'Map tiles by < a href=" ">Stamen Design</ a>, < a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</ a> &mdash; Map data &copy; < a href="http://www.openstreetmap.org/copyright">OpenStreetMap</ a>',
   subdomains: 'abcd',
   minZoom: 0,
   maxZoom: 20,
@@ -53,7 +53,7 @@ var eachPointFunction = function(point) {
   layer.on('click', function (event) {
     var display="default";
     $(".day-of-week").text(display);
-    console.log(point);
+    console.log(point, 'point');
     showResults();
   });
 };
@@ -66,7 +66,7 @@ var eachPointFunction = function(point) {
 $(document).ready(function() {
   $.ajax(dataset).done(function(data) {
     var parsedData = JSON.parse(data);
-    console.log(parsedData);
+    console.log(parsedData, 'parseddata');
     var pricegroup = [];
     _.each(parsedData.features,function(point){
       pricegroup.push(point.properties.prices);
@@ -90,13 +90,24 @@ $(document).ready(function() {
       var color = 'green';
       var pathOpts = {'radius': Math.log(point.properties.prices)/3,
                       'fillColor': color, 'color':'grey', opacity: 0.8};
-      mypoint = L.circleMarker([point.geometry.coordinates[1],point.geometry.coordinates[0]],pathOpts).bindPopup(point.properties.address + " $" + point.properties.prices).addTo(map);
-    });
-    console.log(pointGroup);
+                      // create popup contents
+     var customPopup = _.template("Property Detail<br> Address: <%= address %> <br> Prices: $<%= prices %> <br> Size: <%= size %>sqft" );
 
-    // quite similar to _.each
-    _.each(pointGroup,function(point){
-        eachPointFunction(point);
+                // specify popup options
+      var customOptions =
+                    {
+                    'maxWidth': '400',
+                    'width': '200',
+                    'className' : 'custom-popup'
+                  };
+      mypoint = L.circleMarker([point.geometry.coordinates[1],point.geometry.coordinates[0]],pathOpts).bindPopup(customPopup({address:point.properties.address, prices:point.properties.prices, size:point.properties.sqft}),customOptions).addTo(map);
     });
-});
+    console.log(pointGroup, 'pointgroup');
+
+    // use the latlng property of ev, and call google api afterwards
+/*    map.on('click', function(ev) {
+      console.log(ev,'ev');
+    });
+    */
+  });
 });

@@ -15,18 +15,13 @@ var Stamen_TonerLite = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{
 }).addTo(map);
 
 
-var dataset = "data/data.geoJson";
+var dataset = "https://raw.githubusercontent.com/chenranwu/Chenran-s-Midterm/master/data/data.geojson";
 var featureGroup;
 
-var myStyle = function(feature) {
-  switch (feature.properties.COLLDAY) {
-    case 'MON': return{fillColor: 'red'};
-    case 'TUE': return{fillColor: 'green'};
-    case 'WED': return{fillColor: 'blue'};
-    case 'THU': return{fillColor: 'yellow'};
-    case 'FRI': return{fillColor: 'grey'};
 
-  }
+
+var myStyle = function(feature) {
+
 };
 
 var showResults = function() {
@@ -43,40 +38,31 @@ var showResults = function() {
 };
 
 
-var eachFeatureFunction = function(layer) {
+/*var eachFeatureFunction = function(layer) {
   layer.on('click', function (event) {
     var display="default";
-    switch (layer.feature.properties.COLLDAY) {
-      case 'MON': display="Monday";
-      break;
-      case 'TUE': display="Tuesday";
-      break;
-      case 'WED': display="Wednesday";
-      break;
-      case 'THU': display="Thursday";
-      break;
-      case 'FRI': display="Friday";
-    }
     $(".day-of-week").text(display);
     console.log(layer.feature);
     showResults();
   });
 };
-
-var myFilter = function(feature) {
+*/
+/*var myFilter = function(feature) {
   if (feature.properties.COLLDAY ==" "){return false;}
   else {return true;}
 };
-
+*/
 $(document).ready(function() {
   $.ajax(dataset).done(function(data) {
     var parsedData = JSON.parse(data);
-    featureGroup = L.geoJson(parsedData, {
-      style: myStyle,
-      filter: myFilter
-    }).addTo(map);
+    console.log(parsedData);
+    var mypoint;
+    _.each(parsedData.features,function(point){
+      mypoint = L.circleMarker([point.geometry.coordinates[1],point.geometry.coordinates[0],]).bindPopup(point.properties.address).addTo(map);
+    });
+
 
     // quite similar to _.each
-    featureGroup.eachLayer(eachFeatureFunction);
-  });
+//  featureGroup.eachLayer(eachFeatureFunction);
+});
 });

@@ -10,9 +10,9 @@
   <body>
     <!-- Sidebar -->
     <div class="sidebar">
-      <div id="intro">
+      <div id="page1">
         <h1>Philadelphia Housing Market Overview</h1>
-        <p class="main">Median Listed Housing Price $<span class="price">
+        <p class="main">Median Listed House Price $<span class="price">
         0</span></p>
         <p class="main">Median Unit Size<span class="size">
         0</span> sqft</p>
@@ -21,41 +21,57 @@
         <p>This application shows the lastest listed housing price in Philadelphia from Trulia in order to show the housing market.
           Click on each marker to see detailed information about each property. To get more insights, click on NEXT.</p>
       </div>
-      <div id="results" style="display: none;">
-        <h1>Philadelphia Housing Market Overview</h1>
-        <p class="main">Housing Price $<span class="price">
-        0</span></p>
-        <p class="main">Unit Size<span class="size">
-        0</span> sqft</p>
-        <p class="main">Beds <span class="beds">
-        0</span></p>
-        <p>This application shows the lastest listed housing price in Philadelphia from Trulia in order to show the housing market.
+      <div id="page2" style="display: none;">
+        <h1>Sub-market One: Single-bedroom Unit</h1>
+        <p class="main">This map shows most of single-bedroom units concentrate in Center City</p>
+        <p>This page shows all single-bedroom units for sale in Philadelphia
           Click on each marker to see detailed information about each property. To get more insights, click on NEXT.</p>
+      </div>
+      <div id="page3" style="display: none;">
+        <h1>Sub-market Two: Luxury House</h1>
+        <p class="main">This map shows most of luxury houses concentrate in Center City and north-west corridor</p>
+        <p>This page shows all lunxury houses over $500,000 in Philadelphia
+          Click on each marker to see detailed information about each property. To get more insights, click on NEXT.</p>
+      </div>
+      <div id="page4" style="display: none;">
+        <h1>Sub-market Three: Large House</h1>
+        <p class="main">This map shows large houses over 2000 sqft spread over Center City, north-west and north-east corridors</p>
+        <p>This page shows all large houses over 2000 sqft in Philadelphia
+          Click on each marker to see detailed information about each property. To get more insights, click on NEXT.</p>
+      </div>
+      <div id="page5" style="display: none;">
+        <h1>Sub-market Four: University City</h1>
+        <p class="main">This map shows very few single-bedroom units available in University City. Most of houses have three or more bedrooms</p>
+        <p>This page shows all houses for sale in University City, Philadelphia.
+          Click on each marker to see detailed information about each property. To get more insights, click on NEXT.</p>
+      </div>
+      <div id="page6" style="display: none;">
+        <h1>Summary</h1>
+        <p class="main">This application mapped data from Trulia and made some simple analysis</p>
+        <p>Click on each marker to see detailed information about each property. Click on PREVIOUS to review the application.</p>
+      </div>
+      <div id="buttonbar">
+        <button id="previous" style="display: none">Previous</button>
+        <button id="next">Next</button>
       </div>
     </div>
     <!-- Map -->
-    <div id="map" class="map">
-        <!--<div class="legend">
-          <h1 style="margin-left:10px">Legend</h1>
-          <div id="Monday"></div>
-          <p class="day">Monday</p>
-          <br>
-          <div id="Tuesday"></div>
-          <p class="day">Tuesday</p>
-          <br>
-          <div id="Wednesday"></div>
-          <p class="day">Wednesday</p>
-          <br>
-          <div id="Thursday"></div>
-          <p class="day">Thursday</p>
-          <br>
-          <div id="Friday"></div>
-          <p class="day">Friday</p>
-        </div> -->
-          <p>123</p>
-        </div>
+    <div id="map" class="map"></div>
     </div>
-    <!-- Legend -->
+    <div class="legend">
+      <h2 style="margin-left:10px">Legend</h2>
+      <div id="Onebedroom"></div>
+      <p class="day">1-bedroom</p>
+      <br>
+      <div id="Twobedroom"></div>
+      <p class="day">2-bedroom</p>
+      <br>
+      <div id="Threebedroom"></div>
+      <p class="day">3-bedroom</p>
+      <br>
+      <div id="Overthreebedroom"></div>
+      <p class="day">over-3-bedroom</p>
+    </div>
     <!-- Javascript Imports -->
     <script src="js/jquery-2.2.0.js"></script>
     <script src="js/underscore.js"></script>

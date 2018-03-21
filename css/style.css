@@ -7,7 +7,11 @@ body {
 p.main {
   font-size: 22px;
 }
-
+p.day {
+  font-size: 16px;
+  margin-bottom: 10px;
+  margin-top: 0px;
+}
 .map {
     position: absolute;
     right: 0px;
@@ -53,50 +57,76 @@ p.main {
   border-right:15px solid transparent;
   border-top:15px solid #2c3e50;
   }
-#Monday{
-  margin-left: 10px;
-  width: 40px;
-  padding: 5px;
-  background-color: red;
-  border: 2px solid blue;
-  display: inline-block;
-  opacity: 0.3;
+#buttonbar{
+  position: absolute;
+  bottom:100px;
+  left: 0px;
+  width: 450px;
+  right:0px;
 }
-#Tuesday{
+#previous{
+  position: absolute;
+  left:20px;
+  width:100px;
+  align-content: center;
+}
+#next{
+  position: absolute;
+  right:40px;
+  width:100px;
+  align-content: center;
+}
+.legend {
+  position: absolute;
+  background-color: #fff;
+  bottom:10px;
+  right: 10px;
+  width: 150px;
+
+}
+#Onebedroom{
   margin-left: 10px;
-  width: 40px;
+  width: 10px;
+  height: 10px;
   padding: 5px;
   background-color: green;
-  border: 2px solid blue;
+  border: 2px solid black;
+  border-radius: 50%;
   display: inline-block;
-  opacity: 0.3;
+  opacity: 0.5;
 }
-#Wednesday{
+#Twobedroom{
   margin-left: 10px;
-  width: 40px;
+  width: 10px;
+  height: 10px;
+  padding: 5px;
+  background-color: red;
+  border: 2px solid black;
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.5;
+}
+#Threebedroom{
+  margin-left: 10px;
+  width: 10px;
+  height: 10px;
   padding: 5px;
   background-color: blue;
-  border: 2px solid blue;
+  border: 2px solid black;
+  border-radius: 50%;
   display: inline-block;
-  opacity: 0.3;
+  opacity: 0.5;
 }
-#Thursday{
+#Overthreebedroom{
   margin-left: 10px;
-  width: 40px;
+  width: 10px;
+  height: 10px;
   padding: 5px;
   background-color: yellow;
-  border: 2px solid blue;
+  border: 2px solid black;
+  border-radius: 50%;
   display: inline-block;
-  opacity: 0.3;
-}
-#Friday{
-  margin-left: 10px;
-  width: 40px;
-  padding: 5px;
-  background-color: grey;
-  border: 2px solid blue;
-  display: inline-block;
-  opacity: 0.3;
+  opacity: 0.5;
 }
 .day{
   display: inline-block;
